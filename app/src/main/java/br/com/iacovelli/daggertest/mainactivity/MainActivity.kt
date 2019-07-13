@@ -7,6 +7,7 @@ import br.com.iacovelli.daggertest.mainfragment.MainFragment
 import br.com.iacovelli.daggertest.R
 import dagger.android.AndroidInjection
 import dagger.android.AndroidInjector
+import dagger.android.DispatchingAndroidInjector
 import dagger.android.support.HasSupportFragmentInjector
 import javax.inject.Inject
 
@@ -16,7 +17,7 @@ class MainActivity : AppCompatActivity(), HasSupportFragmentInjector {
     lateinit var viewModel: ViewModel
 
     @Inject
-    lateinit var fragmentInjector: AndroidInjector<Fragment>
+    lateinit var fragmentInjector: DispatchingAndroidInjector<Fragment>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         AndroidInjection.inject(this)
