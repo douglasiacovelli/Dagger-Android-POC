@@ -1,4 +1,4 @@
-package br.com.iacovelli.daggertest
+package br.com.iacovelli.daggertest.mainfragment
 
 import android.util.Log
 import javax.inject.Inject

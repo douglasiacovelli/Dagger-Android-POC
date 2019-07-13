@@ -1,4 +1,4 @@
-package br.com.iacovelli.daggertest
+package br.com.iacovelli.daggertest.mainactivity
 
 import android.app.Application
 import android.util.Log
@@ -8,7 +8,8 @@ interface Repository {
     fun fetchData(): Unit
 }
 
-class RepositoryImpl @Inject constructor(private val application: Application): Repository {
+class RepositoryImpl @Inject constructor(private val application: Application):
+    Repository {
 
     override fun fetchData() {
         Log.d("mobo", "debugging here: ${application.javaClass.simpleName}")

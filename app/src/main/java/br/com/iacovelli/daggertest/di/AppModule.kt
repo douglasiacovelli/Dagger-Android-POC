@@ -1,4 +1,4 @@
-package br.com.iacovelli.daggertest
+package br.com.iacovelli.daggertest.di
 
 import dagger.Module
 

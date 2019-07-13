@@ -1,4 +1,4 @@
-package br.com.iacovelli.daggertest
+package br.com.iacovelli.daggertest.mainfragment
 
 import android.content.Context
 import android.os.Bundle

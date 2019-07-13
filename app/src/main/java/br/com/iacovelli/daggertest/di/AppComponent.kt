@@ -1,11 +1,11 @@
-package br.com.iacovelli.daggertest
+package br.com.iacovelli.daggertest.di
 
 import android.app.Application
+import br.com.iacovelli.daggertest.MyApplication
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjectionModule
 import dagger.android.AndroidInjector
-import dagger.android.support.AndroidSupportInjectionModule
 
 @Component(modules = [AndroidInjectionModule::class, ActivitiesModules::class, FragmentsModule::class, AppModule::class])
 interface AppComponent: AndroidInjector<MyApplication> {
