@@ -1,18 +1,19 @@
 package br.com.iacovelli.daggertest.mainactivity
 
-import android.app.Application
 import android.util.Log
-import retrofit2.Retrofit
+import retrofit2.Call
 import javax.inject.Inject
 
 interface Repository {
-    fun fetchData(): Unit
+    fun fetchData(): Call<Unit>
 }
 
-class RepositoryImpl @Inject constructor(private val application: Application, private val retrofit: Retrofit):
-    Repository {
+class RepositoryImpl @Inject constructor(
+    private val service: MainService
+) : Repository {
 
-    override fun fetchData() {
-        Log.d("mobo", "debugging here: ${application.javaClass.simpleName}")
+    override fun fetchData(): Call<Unit> {
+        Log.d("mobo", "debugging here repository")
+        return service.fetchData()
     }
 }

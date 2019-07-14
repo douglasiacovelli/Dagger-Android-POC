@@ -1,6 +1,7 @@
-package br.com.iacovelli.daggertest.di
+package com.iacovelli.core.di
 
-import br.com.iacovelli.daggertest.BuildConfig
+import com.iacovelli.core.BuildConfig
+import com.iacovelli.core.Constants
 import dagger.Module
 import dagger.Provides
 import javax.inject.Named
@@ -13,7 +14,7 @@ class AppModule {
     @Singleton
     @Named("baseUrl")
     fun provideBaseUrl(): String {
-        return "http://mydomain.com/api/"
+        return Constants.BASE_URL
     }
 
     @Provides
