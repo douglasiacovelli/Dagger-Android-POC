@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import br.com.iacovelli.daggertest.R
+import br.com.iacovelli.daggertest.detailactivity.DetailActivity
 import br.com.iacovelli.daggertest.mainfragment.MainFragment
 import com.iacovelli.core.getViewModel
 import dagger.android.AndroidInjection
@@ -19,6 +20,12 @@ class MainActivity : AppCompatActivity(), HasSupportFragmentInjector {
     lateinit var factory: ViewModelProvider.Factory
 
     @Inject
+    lateinit var repository: Repository
+
+    @Inject
+    lateinit var repository2: Repository
+
+    @Inject
     lateinit var fragmentInjector: DispatchingAndroidInjector<Fragment>
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,6 +38,8 @@ class MainActivity : AppCompatActivity(), HasSupportFragmentInjector {
         supportFragmentManager.beginTransaction()
             .replace(R.id.container, MainFragment())
             .commit()
+
+        startActivity(DetailActivity.createIntent(this, 26))
     }
 
     override fun supportFragmentInjector(): AndroidInjector<Fragment> = fragmentInjector

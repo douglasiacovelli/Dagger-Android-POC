@@ -1,6 +1,7 @@
 package br.com.iacovelli.daggertest.mainactivity.di
 
 import android.arch.lifecycle.ViewModel
+import br.com.iacovelli.daggertest.di.ActivityScope
 import br.com.iacovelli.daggertest.mainactivity.MainService
 import br.com.iacovelli.daggertest.mainactivity.MainViewModel
 import br.com.iacovelli.daggertest.mainactivity.Repository
@@ -21,11 +22,13 @@ abstract class MainActivityModule {
     abstract fun provideViewModel(viewModel: MainViewModel): ViewModel
 
     @Binds
+    @ActivityScope
     abstract fun provideRepository(repository: RepositoryImpl): Repository
 
     @Module
     companion object {
 
+        @ActivityScope
         @Provides
         @JvmStatic
         fun provideService(retrofit: Retrofit): MainService = retrofit.create(MainService::class.java)
